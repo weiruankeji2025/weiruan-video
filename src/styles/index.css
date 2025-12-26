@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100;
+    @apply transition-colors duration-300;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  /* 自定义滚动条样式 */
+  ::-webkit-scrollbar {
+    @apply w-2 h-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-100 dark:bg-gray-900;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 dark:bg-gray-700 rounded-full;
+    @apply hover:bg-gray-400 dark:hover:bg-gray-600;
+  }
+}
+
+@layer components {
+  .glass-effect {
+    @apply bg-white/70 dark:bg-gray-900/70 backdrop-blur-md;
+    @apply border border-gray-200/50 dark:border-gray-700/50;
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600;
+    @apply text-white rounded-xl font-semibold;
+    @apply hover:from-blue-700 hover:to-purple-700;
+    @apply transition-all duration-300 transform hover:scale-105;
+    @apply shadow-lg hover:shadow-xl;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 bg-gray-200 dark:bg-gray-800;
+    @apply text-gray-900 dark:text-gray-100 rounded-xl font-semibold;
+    @apply hover:bg-gray-300 dark:hover:bg-gray-700;
+    @apply transition-all duration-300;
+  }
+
+  .card {
+    @apply bg-white dark:bg-gray-900 rounded-2xl shadow-lg;
+    @apply border border-gray-200 dark:border-gray-800;
+    @apply transition-all duration-300 hover:shadow-2xl;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 rounded-xl;
+    @apply bg-gray-100 dark:bg-gray-800;
+    @apply border-2 border-transparent;
+    @apply focus:border-blue-500 dark:focus:border-blue-400;
+    @apply focus:outline-none transition-all duration-300;
+    @apply text-gray-900 dark:text-gray-100;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent;
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes glow {
+    from {
+      text-shadow: 0 0 10px #3b82f6, 0 0 20px #3b82f6, 0 0 30px #3b82f6;
+    }
+    to {
+      text-shadow: 0 0 20px #9333ea, 0 0 30px #9333ea, 0 0 40px #9333ea;
+    }
+  }
+}
+
+/* Video.js 自定义样式 */
+.video-js {
+  @apply w-full rounded-xl overflow-hidden;
+}
+
+.video-js .vjs-big-play-button {
+  @apply border-none bg-blue-600/80 rounded-full;
+  @apply hover:bg-blue-700/90;
+  @apply transition-all duration-300;
+}
+
+.video-js .vjs-control-bar {
+  @apply bg-gradient-to-t from-black/80 to-transparent;
+  @apply backdrop-blur-sm;
+}
+
+/* 加载动画 */
+.loading-spinner {
+  @apply inline-block w-8 h-8 border-4 border-gray-300 border-t-blue-600 rounded-full;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
